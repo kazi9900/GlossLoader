@@ -2,19 +2,25 @@ pipeline {
     agent any
 
     stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
         stage('Build') {
             steps {
-                bat 'cd Backend/PC4MT && dotnet build'
+                // your build steps go here
             }
         }
         stage('Test') {
             steps {
-                bat 'dotnet test'
+                // your test steps go here
+                bat 'mstest /testcontainer:D:\\glossloader\\WebAppFile\\GlossLoaderWebApp\\Gloss Loader\\Backend\\PC4MT\MSTest Test Project'
             }
         }
         stage('Publish') {
             steps {
-                bat 'dotnet publish -c release'
+                // your publish steps go here
             }
         }
     }
