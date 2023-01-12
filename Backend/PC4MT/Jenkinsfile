@@ -4,6 +4,7 @@ pipeline {
         stage('Build') {
             steps {
                 // build steps here
+                bat 'msbuild D:\glossloader\WebAppFile\GlossLoaderWebApp\Gloss Loader\Backend\PC4MT\MSTest Test Project\MSTest Test Project.csproj /t:Rebuild /p:Configuration=Debug'
             }
         }
         stage('Test') {
