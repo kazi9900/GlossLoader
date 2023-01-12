@@ -1,29 +1,15 @@
 pipeline {
-    agent any
+    agent { label 'your_agent' }
     stages {
         stage('Build') {
-    steps {
-   bat 'msbuild D:\\glossloader\\WebAppFile\\GlossLoaderWebApp\\Gloss Loader\\Backend\\PC4MT\\MSTest Test Project\\MSTest Test Project.csproj /t:Rebuild /p:Configuration=Debug'
-
-
-    }
-}
-        stage('Test') {
             steps {
-                bat 'mstest /testcontainer:D:/glossloader/WebAppFile/GlossLoaderWebApp/Gloss Loader/Backend/PC4MT/MSTest Test Project/bin/Debug/MSTest Test Project.dll'
+                gradle version: '7.5.1', build
             }
         }
-
-        stage('Publish') {
-    steps {
-        bat 'msbuild D:\\glossloader\\WebAppFile\\GlossLoaderWebApp\\Gloss Loader\\Backend\\PC4MT\\PC4MT.csproj /t:Publish /p:Configuration=Release'
-    }
-}
-stage('Deploy') {
-    steps {
-        copyArtifacts(projectName: 'GlossLoader_Demo', filter: 'D:\\glossloader\\WebAppFile\\GlossLoaderWebApp\\Gloss Loader\\Backend\\PC4MT\\publish\\**',
-                      target: '/path/to/remote/directory')
-    }
-}
+        stage('Test') {
+            steps {
+                gradle version: '7.5.1', test
+            }
+        }
     }
 }
