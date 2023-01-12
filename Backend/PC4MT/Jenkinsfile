@@ -8,7 +8,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                bat 'mstest /testcontainer:D:\glossloader\WebAppFile\GlossLoaderWebApp\Gloss Loader\Backend\PC4MT\MSTest Test Project\bin\Debug\MSTest Test Project.dll'
+                bat 'mstest /testcontainer:D:/glossloader/WebAppFile/GlossLoaderWebApp/Gloss Loader/Backend/PC4MT/MSTest Test Project/bin/Debug/MSTest Test Project.dll'
             }
         }
         stage('Publish') {
