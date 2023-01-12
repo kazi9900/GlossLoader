@@ -4,17 +4,16 @@ pipeline {
         stage('Build') {
             steps {
                 bat 'msbuild D:\\glossloader\\WebAppFile\\GlossLoaderWebApp\\Gloss Loader\\Backend\\PC4MT\\MSTest Test Project\\MSTest Test Project.csproj /t:Rebuild /p:Configuration=Debug'
-
             }
         }
         stage('Test') {
             steps {
-                bat 'mstest /testcontainer:D:/glossloader/WebAppFile/GlossLoaderWebApp/Gloss Loader/Backend/PC4MT/MSTest Test Project/bin/Debug/MSTest Test Project.dll'
+                bat 'mstest /testcontainer:D:\\glossloader\\WebAppFile\\GlossLoaderWebApp\\Gloss Loader\\Backend\\PC4MT\\MSTest Test Project\\bin\\Debug\\MSTest Test Project.dll'
             }
         }
         stage('Publish') {
             steps {
-                // publish steps here
+                // Add the necessary steps to publish the build here
             }
         }
     }
