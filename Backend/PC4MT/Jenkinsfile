@@ -1,26 +1,19 @@
 pipeline {
     agent any
-
     stages {
-        stage('Checkout') {
-            steps {
-                checkout scm
-            }
-        }
         stage('Build') {
             steps {
-                // your build steps go here
+                // build steps here
             }
         }
         stage('Test') {
             steps {
-                // your test steps go here
-                bat 'mstest /testcontainer:D:/glossloader/WebAppFile/GlossLoaderWebApp/Gloss Loader/Backend/PC4MT/MSTest Test Project'
+                bat 'mstest /testcontainer:D:\glossloader\WebAppFile\GlossLoaderWebApp\Gloss Loader\Backend\PC4MT\MSTest Test Project\bin\Debug\MSTest Test Project.dll'
             }
         }
         stage('Publish') {
             steps {
-                // your publish steps go here
+                // publish steps here
             }
         }
     }
