@@ -11,6 +11,7 @@ pipeline {
                 bat 'mstest /testcontainer:D:/glossloader/WebAppFile/GlossLoaderWebApp/Gloss Loader/Backend/PC4MT/MSTest Test Project/bin/Debug/MSTest Test Project.dll'
             }
         }
+
         stage('Publish') {
     steps {
         bat 'msbuild D:\\glossloader\\WebAppFile\\GlossLoaderWebApp\\Gloss Loader\\Backend\\PC4MT\\PC4MT.csproj /t:Publish /p:Configuration=Release'
