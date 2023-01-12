@@ -12,12 +12,10 @@ pipeline {
             }
         }
         stage('Publish') {
-            steps {
-                //publish the build artifacts, in this case the compiled and tested files from the app
-                step([$class: 'ArtifactArchiver', artifacts: '**/bin/Debug/*', fingerprint: true])
-                //deploy the app to a remote server by using plugin or whatever you use to deploy it
-                bat 'deployment command'
-            }
-        }
+    steps {
+        bat 'msbuild D:\\glossloader\\WebAppFile\\GlossLoaderWebApp\\Gloss Loader\\Backend\\PC4MT\\PC4MT.csproj /t:Publish /p:Configuration=Release'
+    }
+}
+
     }
 }
