@@ -16,6 +16,18 @@ pipeline {
         bat 'msbuild D:\\glossloader\\WebAppFile\\GlossLoaderWebApp\\Gloss Loader\\Backend\\PC4MT\\PC4MT.csproj /t:Publish /p:Configuration=Release'
     }
 }
+stage('Deploy') {
+    steps {
+        copyArtifacts(
+            artifacts: 'D:\\glossloader\\WebAppFile\\GlossLoaderWebApp\\Gloss Loader\\Backend\\PC4MT\\publish\\**',
+            filter: '**/*.*',
+            fingerprintArtifacts: false,
+            flatten: false,
+            target: '/path/to/remote/directory'
+        )
+    }
+}
+
 
     }
 }
