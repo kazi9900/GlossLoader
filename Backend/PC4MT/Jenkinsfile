@@ -18,16 +18,9 @@ pipeline {
 }
 stage('Deploy') {
     steps {
-        copyArtifacts(
-            artifacts: 'D:\\glossloader\\WebAppFile\\GlossLoaderWebApp\\Gloss Loader\\Backend\\PC4MT\\publish\\**',
-            filter: '**/*.*',
-            fingerprintArtifacts: false,
-            flatten: false,
-            target: '/path/to/remote/directory'
-        )
+        copyArtifacts(projectName: 'GlossLoader_Demo', filter: 'D:\\glossloader\\WebAppFile\\GlossLoaderWebApp\\Gloss Loader\\Backend\\PC4MT\\publish\\**',
+                      target: '/path/to/remote/directory')
     }
 }
-
-
     }
 }
